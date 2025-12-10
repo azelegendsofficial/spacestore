@@ -445,30 +445,6 @@
             box-shadow: 0 25px 50px rgba(59, 130, 246, 0.4), 0 0 80px rgba(59, 130, 246, 0.3);
         }
 
-        .product-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--accent-blue), var(--bright-blue));
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 0 30px var(--glow-blue), 0 0 50px rgba(59, 130, 246, 0.3);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .product-card:hover .product-icon {
-            transform: scale(1.15) rotate(10deg);
-            box-shadow: 0 0 40px var(--glow-blue), 0 0 80px rgba(59, 130, 246, 0.5);
-        }
-
-        .product-icon svg {
-            width: 35px;
-            height: 35px;
-            stroke: white;
-        }
-        
         /* New styles for Package image/description */
         .package-image-container {
             width: 100%;
@@ -616,6 +592,7 @@
             border-radius: 24px;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             text-align: center;
+            cursor: pointer; /* Add cursor for clickable effect */
         }
         
         .domain-card h3 {
@@ -747,82 +724,6 @@
             font-size: 1rem;
         }
 
-        .form-input {
-            width: 100%;
-            padding: 1rem 1.25rem;
-            background: rgba(2, 8, 23, 0.6);
-            border: 2px solid rgba(59, 130, 246, 0.3);
-            border-radius: 12px;
-            color: var(--pure-white);
-            font-size: 1rem;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: rgba(59, 130, 246, 0.6);
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-        }
-
-        .form-input::placeholder {
-            color: var(--text-gray);
-        }
-
-        .domain-options {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .domain-option {
-            flex: 1 1 150px;
-            background: rgba(2, 8, 23, 0.6);
-            border: 2px solid rgba(59, 130, 246, 0.3);
-            border-radius: 12px;
-            padding: 1.25rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .domain-option:hover {
-            border-color: rgba(59, 130, 246, 0.5);
-            background: rgba(2, 8, 23, 0.8);
-            transform: translateY(-2px);
-        }
-
-        .domain-option.selected {
-            border-color: var(--bright-blue);
-            background: rgba(59, 130, 246, 0.15);
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-        }
-
-        .domain-info {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-            align-items: center;
-        }
-
-        .domain-name {
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--pure-white);
-        }
-
-        .domain-period {
-            font-size: 0.85rem;
-            color: var(--text-gray);
-        }
-
-        .domain-price-select {
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: var(--sky-blue);
-            margin-top: 0.5rem;
-        }
-
         .submit-btn {
             width: 100%;
             padding: 1.25rem 2rem;
@@ -844,25 +745,9 @@
             margin-top: 1rem;
         }
 
-        .submit-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
         .submit-btn:not(:disabled):hover {
             transform: translateY(-2px);
             box-shadow: 0 16px 32px rgba(59, 130, 246, 0.6), 0 0 80px rgba(59, 130, 246, 0.4);
-        }
-
-        .error-message {
-            color: #ff6b6b;
-            font-size: 0.875rem;
-            margin-top: 0.5rem;
-            display: none;
-        }
-
-        .error-message.show {
-            display: block;
         }
 
         footer {
@@ -1004,8 +889,9 @@
                     Rp 200K<span class="price-period">/project</span>
                 </div>
                 <button class="order-btn" onclick="openModal('Landing Basic', 'Rp 200K')">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M17.472 14.382c..."/> </svg>
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="white">
+                        <path d="M17.472 14.382c-.29-.146-1.726-.852-2.032-.958-.308-.105-.53-.158-.752.158-.224.316-.867 1.055-1.06 1.272-.193.216-.386.24-.71.084-.31-.15-1.312-.483-2.497-1.543-1.096-.993-1.834-2.22-2.057-2.535-.223-.316-.024-.486.143-.643.146-.146.32-.38.487-.57.17-.19.223-.316.326-.534.104-.218.05-.405-.025-.572-.075-.166-.677-1.624-.93-2.226-.24-.593-.48-.51-.65-.52-.167-.006-.358-.007-.547-.007-.189 0-.495.07-.752.348-.258.278-.985.962-.985 2.348 0 1.402 1.01 2.72 1.155 2.91.144.19 1.986 3.033 4.807 4.227 2.378.993 2.872.883 3.366.822.385-.047 1.266-.52 1.442-1.02.176-.5-.075-.76-.149-.884-.074-.124-.223-.198-.466-.32zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/>
+                    </svg>
                     Order Now
                 </button>
             </div>
@@ -1029,8 +915,9 @@
                     Rp 1.5Jt<span class="price-period">/project</span>
                 </div>
                 <button class="order-btn" onclick="openModal('Landing Pro', 'Rp 1.5Jt')">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M17.472 14.382c..."/> </svg>
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="white">
+                        <path d="M17.472 14.382c-.29-.146-1.726-.852-2.032-.958-.308-.105-.53-.158-.752.158-.224.316-.867 1.055-1.06 1.272-.193.216-.386.24-.71.084-.31-.15-1.312-.483-2.497-1.543-1.096-.993-1.834-2.22-2.057-2.535-.223-.316-.024-.486.143-.643.146-.146.32-.38.487-.57.17-.19.223-.316.326-.534.104-.218.05-.405-.025-.572-.075-.166-.677-1.624-.93-2.226-.24-.593-.48-.51-.65-.52-.167-.006-.358-.007-.547-.007-.189 0-.495.07-.752.348-.258.278-.985.962-.985 2.348 0 1.402 1.01 2.72 1.155 2.91.144.19 1.986 3.033 4.807 4.227 2.378.993 2.872.883 3.366.822.385-.047 1.266-.52 1.442-1.02.176-.5-.075-.76-.149-.884-.074-.124-.223-.198-.466-.32zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/>
+                    </svg>
                     Order Now
                 </button>
             </div>
@@ -1054,8 +941,9 @@
                     Rp 6.7Jt<span class="price-period">/project</span>
                 </div>
                 <button class="order-btn" onclick="openModal('Landing Premium', 'Rp 6.7Jt')">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M17.472 14.382c..."/> </svg>
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="white">
+                        <path d="M17.472 14.382c-.29-.146-1.726-.852-2.032-.958-.308-.105-.53-.158-.752.158-.224.316-.867 1.055-1.06 1.272-.193.216-.386.24-.71.084-.31-.15-1.312-.483-2.497-1.543-1.096-.993-1.834-2.22-2.057-2.535-.223-.316-.024-.486.143-.643.146-.146.32-.38.487-.57.17-.19.223-.316.326-.534.104-.218.05-.405-.025-.572-.075-.166-.677-1.624-.93-2.226-.24-.593-.48-.51-.65-.52-.167-.006-.358-.007-.547-.007-.189 0-.495.07-.752.348-.258.278-.985.962-.985 2.348 0 1.402 1.01 2.72 1.155 2.91.144.19 1.986 3.033 4.807 4.227 2.378.993 2.872.883 3.366.822.385-.047 1.266-.52 1.442-1.02.176-.5-.075-.76-.149-.884-.074-.124-.223-.198-.466-.32zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/>
+                    </svg>
                     Order Now
                 </button>
             </div>
@@ -1070,21 +958,21 @@
         </div>
         
         <div class="domain-options-grid">
-            <div class="domain-card animate-on-scroll">
+            <div class="domain-card animate-on-scroll" onclick="orderDomain('.web.id', 340000)">
                 <h3>.web.id</h3>
                 <p class="domain-period">Pilihan Lokal, Terbaik untuk Bisnis Indonesia</p>
                 <div class="domain-price">Rp 340.000</div>
                 <p class="product-description" style="margin-top: -10px;">Domain populer untuk identitas web Indonesia. (Harga sudah termasuk Hosting Standar 1 Tahun)</p>
             </div>
 
-            <div class="domain-card animate-on-scroll">
+            <div class="domain-card animate-on-scroll" onclick="orderDomain('.id', 440000)">
                 <h3>.id</h3>
                 <p class="domain-period">Identitas Digital Paling Premium & Singkat</p>
                 <div class="domain-price">Rp 440.000</div>
                 <p class="product-description" style="margin-top: -10px;">Domain TLD Indonesia paling eksklusif dan mudah diingat. (Harga sudah termasuk Hosting Standar 1 Tahun)</p>
             </div>
 
-            <div class="domain-card animate-on-scroll">
+            <div class="domain-card animate-on-scroll" onclick="orderDomain('.store', 58100)">
                 <h3>.store</h3>
                 <p class="domain-period">Sempurna untuk Toko Online/E-commerce</p>
                 <div class="domain-price">Rp 58.100</div>
@@ -1097,10 +985,12 @@
     <div id="orderModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">Order Details</h2>
+                <h2 class="modal-title">Konfirmasi Order Paket</h2>
                 <button class="close-btn" onclick="closeModal()">×</button>
             </div>
 
+            <p class="product-description">Anda akan diarahkan ke WhatsApp untuk melanjutkan pemesanan paket ini. Harap siapkan nama domain yang Anda inginkan.</p>
+            
             <div class="form-group">
                 <label class="form-label">Paket yang dipilih:</label>
                 <div style="padding: 1rem; background: rgba(59, 130, 246, 0.15); border-radius: 12px; border: 1px solid rgba(59, 130, 246, 0.4);">
@@ -1109,49 +999,10 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label class="form-label" for="domainName">Nama Domain (tanpa ekstensi):</label>
-                <input 
-                    type="text" 
-                    id="domainName" 
-                    class="form-input" 
-                    placeholder="Contoh: nama-bisnis-anda"
-                    onkeyup="validateDomainName()"
-                >
-                <div id="domainError" class="error-message">Masukkan nama domain yang valid (hanya huruf, angka, dan tanda hubung, tidak diawali/diakhiri tanda hubung)</div>
-            </div>
-
-            <div class="form-group">
-                <label class="form-label">Pilih Ekstensi Domain (Termasuk Hosting 1 Tahun):</label>
-                <div class="domain-options">
-                    <div class="domain-option" onclick="selectDomain('web.id', 340000)">
-                        <div class="domain-info">
-                            <div class="domain-name">.web.id</div>
-                            <div class="domain-period">1 Tahun</div>
-                            <div class="domain-price-select">Rp 340K</div>
-                        </div>
-                    </div>
-                    <div class="domain-option" onclick="selectDomain('id', 440000)">
-                        <div class="domain-info">
-                            <div class="domain-name">.id</div>
-                            <div class="domain-period">1 Tahun</div>
-                            <div class="domain-price-select">Rp 440K</div>
-                        </div>
-                    </div>
-                    <div class="domain-option" onclick="selectDomain('store', 58100)">
-                        <div class="domain-info">
-                            <div class="domain-name">.store</div>
-                            <div class="domain-period">1 Tahun</div>
-                            <div class="domain-price-select">Rp 58.1K</div>
-                        </div>
-                    </div>
-                </div>
-                <div id="domainExtError" class="error-message">Pilih salah satu ekstensi domain (Harga termasuk hosting 1 tahun)</div>
-            </div>
-
-            <button id="submitBtn" class="submit-btn" onclick="submitOrder()" disabled>
+            <button id="submitBtnPackage" class="submit-btn" onclick="submitPackageOrder()">
                 <svg viewBox="0 0 24 24" fill="white">
-                    <path d="M17.472 14.382c..."/> </svg>
+                    <path d="M17.472 14.382c-.29-.146-1.726-.852-2.032-.958-.308-.105-.53-.158-.752.158-.224.316-.867 1.055-1.06 1.272-.193.216-.386.24-.71.084-.31-.15-1.312-.483-2.497-1.543-1.096-.993-1.834-2.22-2.057-2.535-.223-.316-.024-.486.143-.643.146-.146.32-.38.487-.57.17-.19.223-.316.326-.534.104-.218.05-.405-.025-.572-.075-.166-.677-1.624-.93-2.226-.24-.593-.48-.51-.65-.52-.167-.006-.358-.007-.547-.007-.189 0-.495.07-.752.348-.258.278-.985.962-.985 2.348 0 1.402 1.01 2.72 1.155 2.91.144.19 1.986 3.033 4.807 4.227 2.378.993 2.872.883 3.366.822.385-.047 1.266-.52 1.442-1.02.176-.5-.075-.76-.149-.884-.074-.124-.223-.198-.466-.32zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/>
+                </svg>
                 Order Sekarang via WhatsApp
             </button>
         </div>
@@ -1182,11 +1033,10 @@
             observer.observe(el);
         });
 
-        // Modal functionality
+        // Modal functionality for LANDING PAGE PACKAGE
         let currentPackage = '';
         let currentPrice = '';
-        let selectedDomainExt = '';
-        let selectedDomainPrice = 0;
+        const ownerWaNumber = '6285242510587'; // Ganti dengan nomor WhatsApp Anda
 
         function openModal(packageName, price) {
             currentPackage = packageName;
@@ -1195,15 +1045,6 @@
             document.getElementById('selectedPrice').textContent = price;
             document.getElementById('orderModal').classList.add('active');
             document.body.style.overflow = 'hidden';
-            
-            // Reset form
-            document.getElementById('domainName').value = '';
-            selectedDomainExt = '';
-            selectedDomainPrice = 0;
-            document.querySelectorAll('.domain-option').forEach(opt => opt.classList.remove('selected'));
-            document.getElementById('submitBtn').disabled = true;
-            document.getElementById('domainError').classList.remove('show');
-            document.getElementById('domainExtError').classList.remove('show');
         }
 
         function closeModal() {
@@ -1211,97 +1052,68 @@
             document.body.style.overflow = 'auto';
         }
 
-        function selectDomain(extension, price) {
-            selectedDomainExt = extension;
-            selectedDomainPrice = price;
-            
-            document.querySelectorAll('.domain-option').forEach(opt => opt.classList.remove('selected'));
-            event.currentTarget.classList.add('selected');
-            document.getElementById('domainExtError').classList.remove('show');
-            
-            checkFormValidity();
-        }
+        function submitPackageOrder() {
+            const waText = `Halo Space Store! Saya ingin order Paket Landing Page:
 
-        function validateDomainName() {
-            const domainInput = document.getElementById('domainName');
-            const domainValue = domainInput.value.trim();
-            const domainError = document.getElementById('domainError');
-            
-            // Regex untuk validasi nama domain (huruf, angka, dan tanda hubung, tidak diawali/diakhiri tanda hubung)
-            const domainRegex = /^[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/;
-            
-            if (domainValue === '') {
-                domainError.classList.add('show');
-                checkFormValidity();
-                return false;
-            }
-            
-            if (!domainRegex.test(domainValue)) {
-                domainError.classList.add('show');
-                checkFormValidity();
-                return false;
-            }
-            
-            domainError.classList.remove('show');
-            checkFormValidity();
-            return true;
-        }
+📦 *Paket yang dipilih:* ${currentPackage} - ${currentPrice}
+👉 *Langkah selanjutnya:* Mohon panduan untuk proses pengerjaan.
 
-        function checkFormValidity() {
-            const domainName = document.getElementById('domainName').value.trim();
-            const domainRegex = /^[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/;
-            const submitBtn = document.getElementById('submitBtn');
-            
-            if (domainName && domainRegex.test(domainName) && selectedDomainExt) {
-                submitBtn.disabled = false;
-            } else {
-                submitBtn.disabled = true;
-            }
-        }
-
-        function submitOrder() {
-            const domainName = document.getElementById('domainName').value.trim();
-            const domainError = document.getElementById('domainError');
-            const domainExtError = document.getElementById('domainExtError');
-            
-            // Validasi final
-            if (!validateDomainName()) {
-                return;
-            }
-            
-            if (!selectedDomainExt) {
-                domainExtError.classList.add('show');
-                return;
-            }
-            
-            // Buat teks WhatsApp
-            const fullDomain = `${domainName}.${selectedDomainExt}`;
-            const domainPriceFormatted = new Intl.NumberFormat('id-ID', {
-                style: 'currency',
-                currency: 'IDR',
-                minimumFractionDigits: 0
-            }).format(selectedDomainPrice);
-            
-            const waText = `Halo Space Store! Saya ingin order:
-
-📦 *Paket Landing Page:* ${currentPackage} - ${currentPrice}
-🌐 *Domain Pilihan:* ${fullDomain}
-💰 *Harga Domain (Termasuk Hosting 1 Tahun):* ${domainPriceFormatted}
-
-Mohon informasi lebih lanjut untuk proses pemesanan. Terima kasih!`;
+Terima kasih!`;
             
             const encodedText = encodeURIComponent(waText);
-            // Ganti nomor WhatsApp tujuan jika perlu
-            const waUrl = `https://wa.me/6285242510587?text=${encodedText}`; 
+            const waUrl = `https://wa.me/${ownerWaNumber}?text=${encodedText}`; 
             
-            // Buka WhatsApp
             window.open(waUrl, '_blank');
             
-            // Tutup modal setelah delay singkat
             setTimeout(() => {
                 closeModal();
             }, 500);
         }
+
+        // DOMAIN ORDER FUNCTIONALITY
+        function orderDomain(extension, rawPrice) {
+            const priceFormatted = new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                minimumFractionDigits: 0
+            }).format(rawPrice);
+
+            // Pop-up prompt untuk meminta nama domain
+            let domainName = prompt(`Masukkan *Nama Domain* yang Anda inginkan (tanpa ekstensi ${extension}):\nContoh: bisnis-sukses`);
+
+            if (domainName === null || domainName.trim() === '') {
+                // User membatalkan atau tidak memasukkan apa-apa
+                alert('Pemesanan domain dibatalkan. Harap masukkan nama domain yang valid untuk melanjutkan.');
+                return;
+            }
+
+            // Sanitasi dan format nama domain
+            domainName = domainName.toLowerCase().trim().replace(/\s+/g, '-'); // Ganti spasi dengan tanda hubung
+
+            // Validasi sederhana (huruf, angka, tanda hubung)
+            const domainRegex = /^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+            if (!domainRegex.test(domainName)) {
+                alert('Nama domain tidak valid. Harap gunakan hanya huruf kecil, angka, dan tanda hubung (-).');
+                return;
+            }
+
+            const fullDomain = `${domainName}${extension}`;
+
+            const waText = `Halo Space Store! Saya ingin order Domain & Hosting:
+
+🌐 *Domain Pilihan:* ${fullDomain}
+💰 *Harga Total:* ${priceFormatted} (Termasuk Hosting Standar 1 Tahun)
+✅ *Catatan:* Domain ini akan digunakan untuk pengerjaan landing page.
+
+Mohon cek ketersediaan domain dan panduan pembayaran. Terima kasih!`;
+            
+            const encodedText = encodeURIComponent(waText);
+            const waUrl = `https://wa.me/${ownerWaNumber}?text=${encodedText}`; 
+            
+            // Buka WhatsApp
+            window.open(waUrl, '_blank');
+        }
+
 
         // Close modal when clicking outside
         document.getElementById('orderModal').addEventListener('click', function(e) {
